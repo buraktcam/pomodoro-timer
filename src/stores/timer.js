@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia';
+import sound from '@/assets/notification.mp3'
 
 export const useTimerStore = defineStore('timer', {
   state: () => {
@@ -139,8 +140,12 @@ export const useTimerStore = defineStore('timer', {
     },
     
     playNotification() {
-      const audio = new Audio('/notification.mp3');
-      audio.play().catch(error => console.log('Error playing notification:', error));
+      try {
+        const audio = new Audio(sound);
+        audio.play().catch(error => console.log('Error playing notification:', error));
+      } catch (e) {
+        console.log('Notification sound failed to load:', e);
+      }
     },
 
     resetDailyProgress() {
