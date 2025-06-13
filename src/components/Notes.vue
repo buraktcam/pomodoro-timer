@@ -224,6 +224,7 @@ const handleClickOutside = (event) => {
 
 onMounted(() => {
   themeStore.initTheme()
+  notesStore.loadFromLocalStorage()
   document.addEventListener('click', handleClickOutside)
 })
 
