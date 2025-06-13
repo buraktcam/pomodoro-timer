@@ -1,6 +1,6 @@
 # Pomodoro Timer App
 
-A Vue 3 Pomodoro Timer application with Firebase integration for note-taking.
+A Vue 3 Pomodoro Timer application with note-taking support. Notes are saved to the browser's `localStorage` by default.
 
 ## Features
 
@@ -9,7 +9,7 @@ A Vue 3 Pomodoro Timer application with Firebase integration for note-taking.
 - 🔄 Auto-start options for breaks and focus sessions
 - 🎵 Sound notifications when sessions end
 - 📱 Responsive design for mobile and desktop
-- 💾 Cloud storage for notes using Firebase
+- 💾 Notes persist in the browser using `localStorage`
 
 ## Setup
 
@@ -19,20 +19,7 @@ A Vue 3 Pomodoro Timer application with Firebase integration for note-taking.
    npm install
    ```
 
-3. Create a Firebase project and enable Firestore
-4. Create a `.env` file in the root directory with your Firebase configuration:
-   ```
-   VITE_FIREBASE_API_KEY=your_api_key
-   VITE_FIREBASE_AUTH_DOMAIN=your_auth_domain
-   VITE_FIREBASE_PROJECT_ID=your_project_id
-   VITE_FIREBASE_STORAGE_BUCKET=your_storage_bucket
-   VITE_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
-   VITE_FIREBASE_APP_ID=your_app_id
-   ```
-
-5. Update the Firebase configuration in `src/firebase/config.js` with your environment variables
-
-6. Run the development server:
+3. Run the development server:
    ```bash
    npm run dev
    ```
@@ -48,7 +35,7 @@ npm run build
 - Vue 3 (Composition API)
 - Pinia for state management
 - TailwindCSS for styling
-- Firebase/Firestore for data storage
+- Optional Firebase/Firestore integration
 - Vite for build tooling
 
 ## License
