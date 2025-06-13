@@ -108,15 +108,22 @@ onUnmounted(() => {
   }
 })
 
-// Watch for pause state
+// React to running state changes
 watch(
   () => timerStore.isRunning,
   (isRunning) => {
-    if (!isRunning && timerInterval) {
+    if (isRunning) {
+      if (!timerInterval) {
+        timerInterval = setInterval(() => {
+          timerStore.tick()
+        }, 1000)
+      }
+    } else if (timerInterval) {
       clearInterval(timerInterval)
       timerInterval = null
     }
-  }
+  },
+  { immediate: true }
 )
 </script>
 
